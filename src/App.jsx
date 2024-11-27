@@ -11,7 +11,7 @@ const App = () => {
   const [data, setData] = useState([...techProducts]);
   return (
     <>
-      <Router>
+      <Router basename="/E-Shop">
         <Header setData={setData} />
         <Routes>
           <Route path="/" element={<Main techProducts={data} />} />
