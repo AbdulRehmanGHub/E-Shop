@@ -1,8 +1,60 @@
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Main = ({techProducts}) => {
+const Main = ({ techProducts, cart, setCart }) => {
+  const addToCart = (
+    category,
+    id,
+    name,
+    description,
+    model,
+    brand,
+    price,
+    salePrice,
+    buyLink,
+    imgSrc
+  ) => {
+    const obj = {
+      category,
+      id,
+      name,
+      description,
+      model,
+      brand,
+      price,
+      salePrice,
+      buyLink,
+      imgSrc,
+    };
+    setCart([...cart, obj]);
+    // console.log("Cart elem = ", cart);
+    toast.success("Item added to Cart.", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div className="Cards flex justify-center items-center gap-8 flex-wrap py-4 px-2">
         {techProducts.map((product) => {
           return (
@@ -47,7 +99,23 @@ const Main = ({techProducts}) => {
                       View
                     </button>
                   </Link>
-                  <button className="bg-slate-900 hover:bg-slate-950 font-medium py-1 px-3 rounded">
+                  <button
+                    onClick={() =>
+                      addToCart(
+                        product.category,
+                        product.id,
+                        product.name,
+                        product.description,
+                        product.model,
+                        product.brand,
+                        product.price,
+                        product.salePrice,
+                        product.buyLink,
+                        product.imgSrc
+                      )
+                    }
+                    className="bg-slate-900 hover:bg-slate-950 font-medium py-1 px-3 rounded"
+                  >
                     Add to Cart
                   </button>
                 </div>
