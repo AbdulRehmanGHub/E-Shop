@@ -78,16 +78,16 @@ const ProductPage = ({ cart, setCart }) => {
         theme="dark"
       />
       <div className="Product-details my-8">
-        <div className="flex justify-evenly items-start flex-wrap gap-2">
-          <div className="P-img w-[45%] h-[460px] bg-white">
+        <div className="flex justify-center items-center flex-wrap gap-2">
+          <div className="md:P-img md:w-[500px] md:h-[460px] bg-slate-100">
             <img
               src={product.imgSrc}
               alt={product.name}
-              className="w-full h-full"
+              className="w-[80%]"
             />
           </div>
 
-          <div className="P-img w-[30%] h-[460px]">
+          <div className="md:P-text md:w-[30%] md:h-[460px] text-neutral-800">
             <div className="Product-text px-2 py-1 flex flex-col gap-2">
               <h2 className="text-xl font-semibold">Name: {product.name}</h2>
               <p className="text-sm">Description: {product.description}</p>
@@ -104,14 +104,14 @@ const ProductPage = ({ cart, setCart }) => {
                   {product.price?.toLocaleString()}
                 </span>
               </p>
-              <p className="font-semibold text-lg text-emerald-400">
+              <p className="font-semibold text-lg text-neutral-900">
                 Sale Price: {product.salePrice?.toLocaleString()} {"PKR"}
               </p>
             </div>
 
-            <div className="Product-btns flex gap-4 items-center px-2 pt-3 pb-1">
+            <div className="Product-btns flex gap-4 items-center px-2 pt-3 pb-1 text-slate-100">
               <Link to={`/product/${product.id}`}>
-                <button className="bg-slate-900 hover:bg-slate-950 font-medium py-1 px-3 rounded">
+                <button className="bg-neutral-800 hover:bg-neutral-900 font-medium py-1 px-3 rounded">
                   Buy Now
                 </button>
               </Link>
@@ -130,7 +130,7 @@ const ProductPage = ({ cart, setCart }) => {
                     product.imgSrc
                   )
                 }
-                className="bg-slate-900 hover:bg-slate-950 font-medium py-1 px-3 rounded"
+                className="bg-neutral-800 hover:bg-neutral-900 font-medium py-1 px-3 rounded"
               >
                 Add to Cart
               </button>
@@ -140,7 +140,7 @@ const ProductPage = ({ cart, setCart }) => {
       </div>
 
       <div className="Related-products flex flex-col px-12 py-8">
-        <h2 className="text-lg font-semibold">Related Products</h2>
+        <h2 className="text-lg font-semibold text-neutral-800">Related Products</h2>
         <Main techProducts={relatedProducts} cart={cart} setCart={setCart} />
       </div>
     </>

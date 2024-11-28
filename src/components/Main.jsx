@@ -61,11 +61,11 @@ const Main = ({ techProducts, cart, setCart }) => {
             <>
               <div
                 key={product.id}
-                className="card relative bg-slate-300 border-2 border-white rounded-lg min-h-[300px] w-[220px] shadow-xl"
+                className="card relative bg-slate-100 border border-white rounded-lg min-h-[300px] w-[220px] shadow-2xl hover:shadow-xl py-4"
               >
-                <div className="absolute bg-purple-800 hover:bg-purple-900 top-[-4%] left-[-6%] px-1 py-0 rounded">
+                {/* <div className="absolute bg-neutral-700 hover:bg-neutral-800 top-[-4%] left-[-6%] px-1 py-0 rounded">
                   {product.category}
-                </div>
+                </div> */}
                 <Link to={`/product/${product.id}`}>
                   <div className="Product-img">
                     <img
@@ -75,27 +75,27 @@ const Main = ({ techProducts, cart, setCart }) => {
                     />
                   </div>
                 </Link>
-                <div className="Product-text px-2 py-1 text-slate-900">
-                  <h2 className="text-xl font-semibold">{product.name}</h2>
+                <div className="Product-text px-2 py-1 text-neutral-900">
+                  <h2 className="text-xl font-semibold text-neutral-900">{product.name}</h2>
                   <p>
                     {product.brand}{" "}
-                    <span className="text-rose-900">{product.model}</span>
+                    <span className="text-neutral-600">{product.model}</span>
                   </p>
                 </div>
 
-                <div className="Product-price flex justify-around items-center px-2 text-slate-900">
-                  <span className="font-semibold text-xl">
+                <div className="Product-price flex justify-around items-center px-2">
+                  <span className="font-semibold text-lg text-neutral-800">
                     {"Rs."}
                     {product.salePrice.toLocaleString()}{" "}
                   </span>
-                  <span className="line-through text-lg">
+                  <span className="line-through text-lg text-neutral-600">
                     {product.price.toLocaleString()}
                   </span>
                 </div>
 
                 <div className="Product-btns flex justify-between items-center px-2 pt-3 pb-1">
                   <Link to={`/product/${product.id}`}>
-                    <button className="bg-slate-900 hover:bg-slate-950 font-medium py-1 px-3 rounded">
+                    <button className="bg-neutral-900 hover:bg-neutral-800 font-medium px-2 py-[2px] rounded">
                       View
                     </button>
                   </Link>
@@ -114,7 +114,7 @@ const Main = ({ techProducts, cart, setCart }) => {
                         product.imgSrc
                       )
                     }
-                    className="bg-slate-900 hover:bg-slate-950 font-medium py-1 px-3 rounded"
+                    className="bg-neutral-900 hover:bg-neutral-800 font-medium px-2 py-[2px] rounded"
                   >
                     Add to Cart
                   </button>

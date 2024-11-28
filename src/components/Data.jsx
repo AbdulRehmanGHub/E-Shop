@@ -24,7 +24,7 @@ export const techProducts = [
     salePrice: 90999,
     buyLink: "https://example.com/laptop-air-13",
     imgSrc:
-      "https://static3.webx.pk/files/4012/Images/1-4012-548725-011220071141.jpg",
+      "https://gmae.pk/wp-content/uploads/2024/02/GMAE-Product-Apple-MacBook-Air-13-inch-MGN63-M1-0.webp",
   },
   {
     category: "Laptops",

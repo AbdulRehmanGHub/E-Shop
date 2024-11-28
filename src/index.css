@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    background-color: #212121;
-    color: #fff;
-    cursor: default;
+  background: radial-gradient(circle at 10% 20%,
+      rgba(216, 241, 230, 0.46) 0.1%,
+      rgba(233, 226, 226, 0.28) 90.1%);
+  color: #fff;
+  cursor: default;
 }

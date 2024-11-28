@@ -2,13 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { techProducts } from "./Data";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 import { useLocation } from "react-router-dom";
 
 const Header = ({ setData, cart }) => {
   // console.log(useLocation());
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false); // State to toggle the menu
   const navigate = useNavigate();
   const filterByCategory = (category) => {
     const element = techProducts.filter(
@@ -45,7 +46,7 @@ const Header = ({ setData, cart }) => {
   return (
     <>
       <div className="header sticky top-0 z-10">
-        <div className="flex justify-between items-center bg-purple-950 px-6 py-4">
+        <div className="sm:flex sm:flex-row sm:justify-between sm:items-center bg-neutral-800 sm:px-6 sm:py-4 flex flex-col items-center justify-center gap-2">
           <Link
             to={"./"}
             className="text-2xl flex items-center gap-2 font-bold"
@@ -56,7 +57,7 @@ const Header = ({ setData, cart }) => {
             />
             <span>E-Shop</span>
           </Link>
-          <div className="flex items-center justify-between gap-4">
+          <div className="sm:flex sm:items-center sm:justify-between sm:gap-4 flex justify-between gap-2">
             <form
               // onClick={submitHandler}
               onSubmit={submitHandler}
@@ -70,63 +71,82 @@ const Header = ({ setData, cart }) => {
                 placeholder="Search Items"
               />
             </form>
-            <Link to={"/cart"} className="text-2xl font-bold relative">
+            <Link
+              to={"/cart"}
+              className="text-2xl ms-2 pb-1 font-bold relative"
+            >
               <FontAwesomeIcon icon={faCartPlus} />
               <span className="absolute top-[-9px] right-0 text-xs text-lime-300">
                 {cart.length}
               </span>
             </Link>
+            {/* Hamburger Icon */}
+            <button
+              className="text-white focus:outline-none sm:hidden ms-4 text-2xl align-text-top"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <FontAwesomeIcon icon={faBars} />
+            </button>
           </div>
         </div>
 
-        {location.pathname == "/" && (
-          <div className="filters mb-6">
-            <div className="bg-purple-800 flex justify-between px-6">
-              <span className="filter-items">Filter by:-</span>
+        <div className="border-t border-neutral-700"></div>
+
+        {location.pathname === "/" && (
+          <div>
+            {/* Filters Section */}
+            <div
+              className={`filters bg-neutral-800 md:px-2 ${
+                menuOpen ? "block" : "hidden"
+              } sm:flex sm:flex-row flex flex-col w-full`}
+              onClick={() => {
+                setMenuOpen(!menuOpen);
+              }}
+            >
               <span
-                className="filter-items hover:bg-purple-900 cursor-pointer"
+                className="filter-items w-full text-center hover:bg-neutral-700 cursor-pointer"
                 onClick={() => setData(techProducts)}
               >
                 View All
               </span>
               <span
-                className="filter-items hover:bg-purple-900 cursor-pointer"
+                className="filter-items w-full text-center hover:bg-neutral-700 cursor-pointer"
                 onClick={() => filterByCategory("Laptops")}
               >
                 Laptops
               </span>
               <span
-                className="filter-items hover:bg-purple-900 cursor-pointer"
+                className="filter-items w-full text-center hover:bg-neutral-700 cursor-pointer"
                 onClick={() => filterByCategory("Monitors")}
               >
                 Monitors
               </span>
               <span
-                className="filter-items hover:bg-purple-900 cursor-pointer"
+                className="filter-items w-full text-center hover:bg-neutral-700 cursor-pointer"
                 onClick={() => filterByCategory("DVDs")}
               >
                 DVDs
               </span>
               <span
-                className="filter-items hover:bg-purple-900 cursor-pointer"
+                className="filter-items w-full text-center hover:bg-neutral-700 cursor-pointer"
                 onClick={() => filterByCategory("Keyboards")}
               >
                 Keyboards
               </span>
               <span
-                className="filter-items cursor-pointer hover:bg-purple-900"
+                className="filter-items cursor-pointer w-full text-center hover:bg-neutral-700"
                 onClick={() => filterByPrice(30000, "less")}
               >
                 0-30K
               </span>
               <span
-                className="filter-items cursor-pointer hover:bg-purple-900"
+                className="filter-items cursor-pointer w-full text-center hover:bg-neutral-700"
                 onClick={() => filterByPrice(30000, "greater")}
               >
                 {">"}30K
               </span>
               <span
-                className="filter-items cursor-pointer hover:bg-purple-900"
+                className="filter-items cursor-pointer w-full text-center hover:bg-neutral-700"
                 onClick={() => filterByPrice(80000, "greater")}
               >
                 {">"}80K
