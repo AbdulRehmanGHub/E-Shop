@@ -79,7 +79,7 @@ const ProductPage = ({ cart, setCart }) => {
       />
       <div className="Product-details my-8">
         <div className="flex justify-center items-center flex-wrap gap-2">
-          <div className="md:P-img md:w-[500px] md:h-[460px] bg-slate-100">
+          <div className="md:P-img flex items-start justify-center md:w-[500px] md:h-[460px] bg-slate-100">
             <img
               src={product.imgSrc}
               alt={product.name}

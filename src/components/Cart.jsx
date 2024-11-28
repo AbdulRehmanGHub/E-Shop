@@ -3,7 +3,7 @@ const Cart = ({ cart, setCart }) => {
   window.scroll(0, 0);
 
   return (
-    <div className="Cart flex items-center justify-center">
+    <div className="Cart flex items-center justify-center px-2">
       <div className="font-sans max-w-4xl max-md:max-w-xl mx-auto py-2">
         <h2 className="text-xl font-bold text-neutral-800">Your Cart</h2>
         <div className="grid md:grid-cols-3 gap-4 mt-3">
@@ -16,7 +16,7 @@ const Cart = ({ cart, setCart }) => {
               cart.map((product) => (
                 <div
                   key={product.id}
-                  className="flex gap-4 bg-slate-200 px-4 py-6 rounded-md shadow-lg hover:shadow-xl"
+                  className="flex flex-wrap gap-2 bg-slate-200 px-2 py-4 md:flex md:gap-4 md:px-4 md:py-6 rounded-md shadow-lg hover:shadow-xl"
                 >
                   <div className="flex gap-4">
                     <div className="w-28 min-h-20 max-sm:w-24 max-sm:h-24 shrink-0">

@@ -80,13 +80,18 @@ const Header = ({ setData, cart }) => {
                 {cart.length}
               </span>
             </Link>
-            {/* Hamburger Icon */}
-            <button
-              className="text-white focus:outline-none sm:hidden ms-4 text-2xl align-text-top"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              <FontAwesomeIcon icon={faBars} />
-            </button>
+
+            {location.pathname === "/" && (
+              <>
+                {/* Hamburger Icon */}
+                <button
+                  className="text-white focus:outline-none sm:hidden ms-4 text-2xl align-text-top"
+                  onClick={() => setMenuOpen(!menuOpen)}
+                >
+                  <FontAwesomeIcon icon={faBars} />
+                </button>
+              </>
+            )}
           </div>
         </div>
 
