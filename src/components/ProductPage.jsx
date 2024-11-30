@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { techProducts } from "./Data";
 import Main from "./Main";
-import { ToastContainer, toast } from "react-toastify";
+import { Flip, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProductPage = ({ cart, setCart }) => {
@@ -41,6 +41,7 @@ const ProductPage = ({ cart, setCart }) => {
       draggable: true,
       progress: undefined,
       theme: "dark",
+      transition: Flip
     });
   };
   const { id } = useParams();
@@ -65,18 +66,7 @@ const ProductPage = ({ cart, setCart }) => {
 
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={1500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+      
       <div className="Product-details my-8">
         <div className="flex justify-center items-center flex-wrap gap-2">
           <div className="md:P-img flex items-start justify-center md:w-[500px] md:h-[460px] bg-slate-100">

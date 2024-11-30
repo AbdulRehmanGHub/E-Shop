@@ -7,6 +7,9 @@ import Cart from "./components/Cart";
 import { techProducts } from "./components/Data";
 import { useState } from "react";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   const [data, setData] = useState([...techProducts]);
   const [cart, setCart] = useState([]);
@@ -20,6 +23,22 @@ const App = () => {
           <Route path="/search/:term" element={<Search cart={cart} setCart={setCart} />} />
           <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
         </Routes>
+
+        {
+          <ToastContainer
+          position="top-right"
+          autoClose={1500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
+        }
+
       </Router>
     </>
   );

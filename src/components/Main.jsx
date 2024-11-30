@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { Flip, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Main = ({ techProducts, cart, setCart }) => {
@@ -38,23 +38,12 @@ const Main = ({ techProducts, cart, setCart }) => {
       draggable: true,
       progress: undefined,
       theme: "dark",
+      transition: Flip
     });
   };
 
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={1500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
       <div className="Cards flex justify-center items-center gap-8 flex-wrap py-4 px-2">
         {techProducts.map((product) => {
           return (
@@ -76,7 +65,9 @@ const Main = ({ techProducts, cart, setCart }) => {
                   </div>
                 </Link>
                 <div className="Product-text px-2 py-1 text-neutral-900">
-                  <h2 className="text-xl font-semibold text-neutral-900">{product.name}</h2>
+                  <h2 className="text-xl font-semibold text-neutral-900">
+                    {product.name}
+                  </h2>
                   <p>
                     {product.brand}{" "}
                     <span className="text-neutral-600">{product.model}</span>
